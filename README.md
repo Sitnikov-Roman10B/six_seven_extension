@@ -5,3 +5,9 @@
   4. Нажмите "Загрузить распакованное расширение"(в Chrome слева сверху)
   5. Запустите появившееся расширение
 Готово!
+
+<details>
+  <summary>Пример работы расширения</summary>
+  <img src="examples/image1.png" alt="image"/>
+  <img src="examples/image2.png" alt="image"/>
+</details>
