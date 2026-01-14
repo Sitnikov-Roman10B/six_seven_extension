@@ -57,18 +57,28 @@ const UpdatePage = () =>{
             child = child.nextSibling;
         }
     }
-    
-    if (document.head) replaceAlternating(document.head);
-    if (document.body) replaceAlternating(document.body);
+    const mutationHandler = () => {
+        observer.disconnect();
+        wordCounter = 0;
+        digitCounter = 0;
+        
+        replaceAlternating(document.head);
+        replaceAlternating(document.body);
+        
+        startObserving();
+    };
 
-    const observer = new MutationObserver((mutations) => {
-        for (const mutation of mutations) {
-            for (const node of mutation.addedNodes) {
-                if (node.nodeType === 1) replaceAlternating(node);
-            }
-        }
-    });
+    const observer = new MutationObserver(mutationHandler);
 
-    observer.observe(document.body, { childList: true, subtree: true });
+    function startObserving() {
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true,
+            characterData: true,
+            attributes: false 
+        });
+    }
+
+    mutationHandler();
 }
 UpdatePage();
