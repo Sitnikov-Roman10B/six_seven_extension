@@ -8,6 +8,6 @@
 
 <details>
   <summary>Пример работы расширения</summary>
-  <img src="examples/image1.png" alt="image"/>
+  <img src="examples/image.png" alt="image"/>
   <img src="examples/image2.png" alt="image"/>
 </details>
